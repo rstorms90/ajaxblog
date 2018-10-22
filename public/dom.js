@@ -1,13 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-  getMovies()
+  getBlogs()
 
+
+// CREATE NEW POST
+
+// EDIT POST
+
+// DELETE POST
+
+// LIST
 
 
 // Use AJAX to get the reports and append them to a table in the DOM
 let editForm = document.getElementById('form')
-function getMovies() {
+function getBlogs() {
   axios.get('/ajaxblog')
   .then((response) => {
     // handle success
