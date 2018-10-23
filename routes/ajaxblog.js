@@ -40,9 +40,7 @@ router.post('/', (req, res, next) => {
   knex('ajaxblog')
     .insert({
       title: req.body.title,
-      director: req.body.director,
-      year: req.body.year,
-      rating: req.body.rating
+      content: req.body.content
     })
     .returning('*')
     .then(data => {

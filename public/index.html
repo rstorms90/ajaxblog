@@ -15,7 +15,7 @@
 <body>
   <header class="header">
     <h1>Russ' Blogs</h1>
-    <h3>Random blogs!</h3>
+    <h4>Random blogs!</h4>
     <button id="createButton">Create New Post</button>
   </header>
 
@@ -29,21 +29,25 @@
   
     <!-- TITLE & CONTENT
     EDIT & DELETE -->
-    <div class="col-md-8" id="currentPost">
+    <div class="col-md-8" id="newPostForm">
       <form class="post-form">
-        <label for="title" id="title">Title</label>
-        <input type="text" class="form-control" value>
+        <label for="title">Title</label>
+        <input name="title" type="text" class="form-control" value>
         <hr>
-      <div class="form-group">
           <label class="content" for="title">Content</label>
-        <textarea name="text" id="content" rows="8" cols="75">
-        </textarea>
-      </div>
-        <button>Edit</button>
-        <button>Delete</button>
+        <textarea name="content" id="newPostContent" rows="8" cols="75"></textarea>
+      <button type="submit" id="post_new">Create Post</button>
       </form>
     </div>
-  </div>
+
+
+    <div class="col-md-8" id="currentPost">
+      <h2 id="blogTitle">Title</h2>
+        <hr>
+      <h4 id="blogContent">Content</h4>
+      <button id="edit">Edit</button>
+      <button id="del">Delete</button>
+    </div>
 
 </div>
 

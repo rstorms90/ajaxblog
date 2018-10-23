@@ -8,9 +8,10 @@ a {
 }
 
 header {
-  background-color: rgb(36, 162, 183);
+  background-color: rgb(39, 131, 207);
   color: white;
   padding: 2em;
+  border-radius: 20px;
 }
 
 header button {
