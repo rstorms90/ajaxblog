@@ -13,13 +13,17 @@ let edit_button = document.getElementById('edit')
 let del_button = document.getElementById('del')
 let new_post = document.getElementById('post_new')
 let currentPost = document.getElementById('currentPost')
+let editForm = document.getElementById('editForm')
+let editPostButton = document.getElementById('edit_post')
 
 newForm.hidden = true
+editForm.hidden = true
 
 //CREATE NEW POST BRINGS UP FORM
 create_button.addEventListener('click', (ev) => {
   newForm.hidden = false
   currentPost.hidden = true
+  editForm.hidden = true
 })
 
 
@@ -71,6 +75,9 @@ function getBlogs() {
       ev.preventDefault()
       currentPost.hidden = false
       newForm.hidden = true
+      editForm.hidden = true
+      editForm.hidden = true
+      editPostButton.hidden = true
       currentTitle.innerText = ev.target.innerText
       
       let blogId = ev.target.getAttribute('data-id')
@@ -97,38 +104,45 @@ function getBlogs() {
         console.log(err)
       })
     })
-  })
 
+    
+    edit_button.addEventListener('click', (ev) => {
+      currentPost.hidden = true
+      editForm.hidden = false
+      newForm.hidden = true
+      editPostButton.hidden = false
+    })
+
+
+    editForm.addEventListener('submit', (ev) => {
+      ev.preventDefault()
+
+      // grab all values from the form
+      let putData = {}
+      let editedBlog = ev.target.elements
+
+      putData.title = editedBlog[0].value
+      putData.content = editedBlog[1].value
+      
+      let id = del_button.getAttribute('data-id')
+
+      
+      axios.put(`/ajaxblog/${id}`, putData)
+      .then((response) => {
+        location.reload()
+        currentPost.hidden = true
+        getBlogs()
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    })
+
+  })
   .catch((error) => {
       // handle error
     console.log(error)
   })
 }
-
-
-
-
-// EDIT POST
-
-// DELETE POST
-
-
-      //EDIT BUTTON
-
-
-        //HIDES EVERYTHING BESIDES blog TO EDIT
-
-
-      //DELETE BUTTON
-
-
-
 })
-
-
-
-// EDIT SUBMIT BUTTON
-
-
-
-    // grab all values from the form

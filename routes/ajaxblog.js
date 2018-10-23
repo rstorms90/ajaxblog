@@ -61,9 +61,7 @@ router.put('/:id', checkIdisNum, (req, res, next) => {
     .limit(1)
     .update({
       title: req.body.title,
-      director: req.body.director,
-      year: req.body.year,
-      rating: req.body.rating
+      content: req.body.content
     })
     .returning('*')
     .then((data) => {
