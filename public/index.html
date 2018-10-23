@@ -13,87 +13,46 @@
 </head>
 
 <body>
-  <navbar>
+  <header class="header">
     <h1>Russ' Blogs</h1>
-    <h3>My blog for complaints about life...and stuff.</h3>
-    <button>Create New Post</button>
-  </navbar>
+    <h3>Random blogs!</h3>
+    <button id="createButton">Create New Post</button>
+  </header>
+
+  <!-- CREATE NEW BUTTON -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 blogs" id="blogList">
+
+    </div>
 
   
+    <!-- TITLE & CONTENT
+    EDIT & DELETE -->
+    <div class="col-md-8" id="currentPost">
+      <form class="post-form">
+        <label for="title" id="title">Title</label>
+        <input type="text" class="form-control" value>
+        <hr>
+      <div class="form-group">
+          <label class="content" for="title">Content</label>
+        <textarea name="text" id="content" rows="8" cols="75">
+        </textarea>
+      </div>
+        <button>Edit</button>
+        <button>Delete</button>
+      </form>
+    </div>
+  </div>
 
-  <!-- HOME PAGE -->
-  <!-- <div class="home">
-  </div> -->
+</div>
 
-  <!-- INDEX PAGE -->
-  <!-- <div class="index">
-    <table id="list-movies">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Director</th>
-          <th>Year</th>
-          <th>My Rating</th>
-          <th><button id="addButton">Add Movie</button></th>
-        </tr>
-      </thead>
-      <tbody id="movies">
+    
 
-      </tbody>
-    </table>
-  </div> -->
 
-  <!-- NEW PAGE -->
-  <!-- <div hidden class="new" id="createForm">
-    <h2>ADD A MOVIE</h2>
-    <form id="create-movie">
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title"><br>
 
-      <label for="director">Director</label>
-      <input type="text" name="director" id="director"><br>
 
-      <label for="year">Year</label>
-      <input type="datetime" name="year" id="year"><br>
 
-      <label for="rating">Rating</label>
-      <input type="text" name="rating" id="rating"><br>
-
-      <label for="url">Poster URL</label>
-      <input type="text" name="posterurl" id="posterurl"><br>
-      <br>
-
-      <input type="submit" value="Submit" id="submit-form">
-    </form>
-  </div> -->
-
-  <!-- EDIT PAGE -->
-  <!-- <img src="#" alt="" id="poster">
-  <div hidden class="edit" id="form">
-    <h2>EDIT A MOVIE</h2>
-    <form id="edit-movie">
-      <label for="id">ID</label>
-      <input type="number" name="id" id="id" readonly><br>
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title"><br>
-
-      <label for="director">Director</label>
-      <input type="text" name="director" id="director"><br>
-
-      <label for="year">Year</label>
-      <input type="datetime" name="year" id="year"><br>
-
-      <label for="rating">Rating</label>
-      <input type="number" name="rating" id="rating"><br>
-
-      <label for="url">Poster URL</label>
-      <input type="text" name="posterurl" id="posterurl"><br>
-      <br>
-
-      <input type="submit" value="submit" id="submit-form">
-    </form>
-
-  </div> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="dom.js"></script>

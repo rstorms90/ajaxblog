@@ -4,11 +4,8 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex('ajaxblog').insert([
-        {id: 1, title: '', content: ''},
-        {id: 2, title: '', content: ''},
-        {id: 3, title: '', content: ''},
-        {id: 4, title: '', content: ''},
-        {id: 5, title: '', content: ''}
+        {id: 1, title: 'BlogTest1', content: 'Blah blah'},
+        {id: 2, title: 'BlogTest2', content: 'Blah blah'}
       ])
       .then(function() {
         // Moves id column (PK) auto-incrementer to correct value after inserts

@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+
+header {
+  background-color: rgb(36, 162, 183);
+  color: white;
+  padding: 2em;
+}
+
+header button {
+  color: black;
+}
+
+.blogs {
+  padding: 2em;
+}
+
+.post-form {
+  padding: 2em;
+}
+
+.content {
+  float: left;
+}
