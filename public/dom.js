@@ -12,12 +12,14 @@ let create_button = document.getElementById('createButton')
 let edit_button = document.getElementById('edit')
 let del_button = document.getElementById('del')
 let new_post = document.getElementById('post_new')
+let currentPost = document.getElementById('currentPost')
 
 newForm.hidden = true
 
 //CREATE NEW POST BRINGS UP FORM
 create_button.addEventListener('click', (ev) => {
   newForm.hidden = false
+  currentPost.hidden = true
 })
 
 
@@ -67,21 +69,36 @@ function getBlogs() {
     
     blogList.addEventListener('click', (ev) => {
       ev.preventDefault()
+      currentPost.hidden = false
+      newForm.hidden = true
       currentTitle.innerText = ev.target.innerText
       
       let blogId = ev.target.getAttribute('data-id')
 
+      del_button.setAttribute('data-id', blogId)
       // get one
       axios.get(`/ajaxblog/${blogId}`)
       .then((response) => {
         blogContent.innerText = response.data[0].content
       })
-
-      //then append content
     })
 
+    del_button.addEventListener('click', (ev) => {
+      ev.preventDefault()
+      currentPost.hidden = true
+
+      let blogId = ev.target.getAttribute('data-id')
+      axios.delete(`/ajaxblog/${blogId}`)
+      .then((response) => {
+        console.log(response)
+        location.reload()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    })
   })
-  
+
   .catch((error) => {
       // handle error
     console.log(error)
